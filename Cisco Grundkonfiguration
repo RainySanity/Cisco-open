@@ -116,6 +116,24 @@ enable
             exec-timeout "10 0"
             login
             exit
+        int fa0/0
+            no shutdown
+            exit
+        int fa0/0.10
+            encapsulation dotiq "10"
+            ip address "10.0.0.254" "255.255.255.0"
+            exit
+        int fa0/0.20
+            encapsulation dotiq "20"
+            ip address "10.255.255.255.254" 255.0.0.0
+            exit
+        int fa0/0.30
+            encapsulation dotiq "10"
+            ip address "192.168.29.254" 255.255.255.0
+            exit
+
+        ip inspect name "SPI" http
             
+
         
 
