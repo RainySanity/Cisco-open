@@ -2,3 +2,10 @@ enable
     configure terminal
         no ip domain-lookup
         username "admin" secret "cisco"
+        service password-encryption
+        exec-timout "10 0"
+        line con 0
+            login local
+            logging synchonous
+            exit
+            
