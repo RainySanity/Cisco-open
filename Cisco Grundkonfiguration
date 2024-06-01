@@ -63,8 +63,14 @@ enable
         username "admin" secret "cisco"
         service password-encryption
         exec-timeout "10 0"
-        
+
         line con 0
             login local
             logging synchonous
             exit
+        
+        ip routing
+        int gig0/1
+            no switchport
+            exit
+            
