@@ -50,7 +50,8 @@ enable
             switchport mode trunk
             switchport trunk allowed vlan 100,200,300,400
             exit
-            
+        copy running-config startup-config
+
 #################            
 #Grundkonfig L3SW
 #################
@@ -70,8 +71,48 @@ enable
             logging synchonous
             exit
         
+        vlan "999"
+            name "block"
+        vlan "100"
+            name "Client
+            exit
+        vlan "200"
+            name "Server"
+            exit
+        vlan "300"
+            name "Admin"
+            exit
+        vlan "400"
+            name "Gast"
+            exit
+
         ip routing
+
         int gig0/1
             no switchport
             exit
+        int gig0/2
+            no switchport
+            exit
+        int range fa0/3 - 24
+            shutdown
+            exit
+        copy running-config startup-config
+
+
+    ###################            
+    #Grundkonfig Router
+    ###################
+
+enable
+    configure terminal
+        hostname "Router01"
+        enable secret "cisco"
+        service password-encryption
+        line con 0
+            password "cisco"
+            login local
+            logging synchonous
+
+
 
