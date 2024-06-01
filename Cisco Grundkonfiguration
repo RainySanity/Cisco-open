@@ -113,6 +113,9 @@ enable
             password "cisco"
             login local
             logging synchonous
-
-
+            exec-timeout "10 0"
+            login
+            exit
+            
+        
 
