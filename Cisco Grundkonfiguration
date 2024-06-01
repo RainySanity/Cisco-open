@@ -50,6 +50,7 @@ enable
             switchport mode trunk
             switchport trunk allowed vlan 100,200,300,400
             exit
+            
 #################            
 #Grundkonfig L3SW
 #################
@@ -73,4 +74,4 @@ enable
         int gig0/1
             no switchport
             exit
-            
+
