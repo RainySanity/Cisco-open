@@ -8,4 +8,42 @@ enable
             login local
             logging synchonous
             exit
-            
+        
+        crypto key generate rsa
+            "4096"
+            ip ssh version 2
+            line vty 0 15
+                transport input ssh
+                exit
+
+        vlan "999"
+            name "block"
+            exit
+        vlan "100"
+            name "Client"
+            exit
+        vlan "200"
+            name "Server"
+        vlan "300"
+            name "Admin"
+            exit
+        vlan "400"
+            name gast
+        
+        int range fa0/6 - 24
+            switchport mode access
+            switchport access vlan 999
+            shutdown
+            exit
+        int range fa0/1 - 2 
+            switchport mode access
+            switchport access vlan 100
+            exit
+        int range fa0/3 - 4
+            switchport mode trunk
+            switchport trunk vlan allowed 100,200,300,400
+            exit
+        int range gig0/1 - 2
+            switchport mode trunk
+            switchport trunk allowed vlan 100,200,300,400
+            exit
