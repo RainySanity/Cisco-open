@@ -1,3 +1,6 @@
+########################
+#Grundkonfiguration L2Sw
+########################
 enable
     configure terminal
         no ip domain-lookup
