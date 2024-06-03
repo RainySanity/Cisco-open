@@ -100,9 +100,9 @@ enable
         copy running-config startup-config
 
 
-    ###################            
-    #Grundkonfig Router
-    ###################
+###################            
+#Grundkonfig Router
+###################
 
 enable
     configure terminal
